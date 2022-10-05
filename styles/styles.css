@@ -126,24 +126,7 @@ img{
 .web{
     color: #2196F3;
 }
-.nav__link{
-    letter-spacing: 0.02em;
-    color: var(--title-text-color);
-}
-.nav__link:hover,
-.nav__link:focus{
-    color: var(--accent-text-color);
-}
-.nav__link--active:after {
-    content: "";
-    position: absolute;
-    height: 4px;
-    width: 100%;
-    border-radius: 4px;
-    background-color: #2196f3;
-    bottom: 0;
-    right: 0;
-}
+
 #e-mail, #phone{
     color:var(--primary-text-color);
     text-decoration: none;
@@ -186,6 +169,26 @@ img{
 .nav{
     display:flex;
     margin-left: 93px;
+}
+.nav__link {
+    letter-spacing: 0.02em;
+    color: var(--title-text-color);
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    color: var(--accent-text-color);
+}
+
+.nav__link--active:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #2196f3;
+    bottom: 0;
+    right: 0;
 }
 .nav > .item{
     position: relative;
@@ -236,6 +239,7 @@ img{
     color: var(--primery-white-color);
 }
 .hero__button{
+    position: relative;
     min-width:200px;
     min-height:50px;
     margin-top: 30px;
@@ -251,9 +255,31 @@ img{
     line-height: 1.9;
     text-align: center;
     font-size: inherit;
+
+    overflow: hidden;
 }
-.hero__button:hover{
+.hero__button:hover, .hero__button:focus{
     opacity: 1;
+    color: #212121;
+}
+.hero__button::before{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+
+    content: " ";
+    display: inline-block;
+
+    width: 35px;
+    height: 35px;
+    background-image: url(../images/cat.svg);
+    background-size: contain;
+
+    transition: transform 250ms linear 500ms;
+}
+.hero__button:hover::before, .hero__button:focus::before{
+    transform: translateY(-60px);
 }
 
 /* Контейнер Features */
@@ -553,7 +579,11 @@ img{
 }
 .filter-list__submenu a{
     text-decoration: none;
-    color: #212121
+    color: #212121;
+}
+.filter-list__submenu a:hover{
+    color: var(--accent-text-color);
+    text-decoration: underline;
 }
 .filter__item:hover .filter-list__submenu{
     display: block;
@@ -601,7 +631,7 @@ img{
     justify-content: center;
     align-items: center;
 }
-.footer-social__link:hover {
+.footer-social__link:hover, .footer-social__link:focus {
     background-color:var(--accent-text-color);
 }
 .footer-social__item{
